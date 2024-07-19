@@ -7,6 +7,8 @@ class Question2 extends StatefulWidget {
 
 class _Question2State extends State<Question2> {
 
+  bool _isFavorite = false;
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -23,6 +25,7 @@ class _Question2State extends State<Question2> {
           },
         ),
         title: Text('Question 2'),
+        centerTitle: true,
       ),
       body: Center(
         child: IconButton(
@@ -30,11 +33,15 @@ class _Question2State extends State<Question2> {
 
           // WILL NEED TO MODIFY THIS LINE
           icon: Icon(
-            Icons.favorite_border,
+            _isFavorite ? Icons.favorite : Icons.favorite_border,
+            color: _isFavorite ? Colors.red : Colors.black, // Set the color to red
           ),
           
           onPressed: () {
             // ADD YOUR CODE HERE
+            setState(() {
+              _isFavorite = !_isFavorite;
+            });
            
           },
         ),

@@ -25,6 +25,7 @@ class _Question4State extends State<Question4> {
           },
         ),
         title: Text('Question 4'),
+        centerTitle: true,
       ),
       body: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -39,18 +40,29 @@ class _Question4State extends State<Question4> {
                   ),
 
                 // WILL NEED TO CHANGE THIS LINE
-                onChanged: null),
-            RaisedButton(
+                onChanged: (bool value) {
+                setState(() {
+                  _agreed = value ?? false;
+                });
+              },
+            ),
+            ElevatedButton(
               child: Text(
                 'Sign Up',
                 style: TextStyle(color: Colors.white),
               ),
-              color: Colors.purple,
+              style: ElevatedButton.styleFrom(
+                primary: Colors.purple,
+              ),
 
               // WILL NEED TO CHANGE THIS LINE
-              onPressed: null,
+              onPressed:  _agreed ? () {
+                // Add your sign-up logic here
+              } : null,
             ),
-          ]),
-    ));
+          ],
+        ),
+      ),
+    );
   }
 }

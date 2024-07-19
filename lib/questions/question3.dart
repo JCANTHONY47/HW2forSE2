@@ -30,6 +30,7 @@ class _Question3State extends State<Question3> {
               },
             ),
             title: Text('Question 3'),
+            centerTitle: true,
           ),
           body: Padding(
             padding: const EdgeInsets.all(8.0),
@@ -72,12 +73,16 @@ class _Question3State extends State<Question3> {
                   ),
                 ),
                 Spacer(),
-                RaisedButton(
+                ElevatedButton(
                     child: Text('Done'),
-                    color: Colors.lightBlue,
+                    style: ElevatedButton.styleFrom(
+                    primary: Colors.lightBlue, // background color
+                    ),
                     onPressed: () {
                       setState(() {
                         // ADD YOUR CODE HERE
+                        match = newPasswordTextEditingController.text ==
+                          confirmNewPasswordTextEditingController.text;
                       });
                     }),
                 Spacer(),

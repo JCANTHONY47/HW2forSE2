@@ -6,6 +6,7 @@ class Question1 extends StatefulWidget {
 }
 
 class _Question1State extends State<Question1> {
+  Color textColor = Colors.black;
 
 
   @override
@@ -24,6 +25,7 @@ class _Question1State extends State<Question1> {
               },
             ),
             title: Text('Question 1'),
+            centerTitle: true,
           ),
           body: Center(
             child: Padding(
@@ -36,20 +38,26 @@ class _Question1State extends State<Question1> {
                       textAlign: TextAlign.center,
                       style: TextStyle( 
                         fontSize: 25,
+                        
 
                         // WILL NEED TO MODIFY THIS LINE
-                        color: Colors.black,
+                        color: textColor,
 
                         
                       ),
                     ),
                     Padding(
                       padding: const EdgeInsets.only(top: 30),
-                      child: RaisedButton(
+                      child: ElevatedButton(
                         child: Text('Make Green'),
-                        color: Colors.green,
+                        style: ElevatedButton.styleFrom(
+                          primary: Colors.green, // Button color
+                        ),
                         onPressed: (){
                          // ADD YOUR CODE HERE
+                         setState(() {
+                            textColor = Colors.green; // Change text color to green
+                          });
                         },
                       ),
                     )
